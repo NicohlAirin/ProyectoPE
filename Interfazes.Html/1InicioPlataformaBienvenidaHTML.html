@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plataforma Virtual</title>
+  <style> 
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('imagenes/fondo_floral.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333;
+}
+
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-family: 'Georgia', serif;
+      color: #f18973;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-color: #f18973;
+    }
+
+    .btn-login {
+      background: #fd9e89;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3rem 2rem;
+      background-color: #fff5f1;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons button {
+      padding: 0.7rem 1.5rem;
+      margin-right: 1rem;
+      border: 2px solid #f18973;
+      border-radius: 20px;
+      background: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero-buttons button:nth-child(2) {
+      background-color: #f18973;
+      color: white;
+    }
+
+    .hero-buttons button:hover {
+      background-color: #ffe1d8;
+    }
+
+    .hero-img img {
+      width: 400px;
+      max-width: 100%;
+    }
+
+ .hero, .seccion {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .seccion {
+      display: none;
+      padding: 2rem;
+      background-color: #fffaf7;
+    }
+
+    .seccion h2 {
+      color: #f18973;
+      margin-bottom: 0.5rem;
+    }
+
+    .seccion p {
+      margin-bottom: 1rem;
+      max-width: 800px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">PE</div>
+    <nav>
+      <ul>
+      <li><a href="#inicio">Inicio</a></li>
+<li><a href="#" onclick="mostrarSeccion('sedes')">Nuestras sedes</a></li>
+<li><a href="#" onclick="mostrarSeccion('proyectos')">Nuestros proyectos</a></li>
+<li><a href="2AyudaPaginaPrincipalHTML.html">Ayuda</a></li>
+        <li><a class="btn-login" href="3IniciodeSesionHTML.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1>¡BIENVENIDOS A NUESTRA PLATAFORMA VIRTUAL!</h1>
+      <div class="hero-buttons">
+        <button onclick="mostrarSeccion('empresa')">Nuestra Empresa</button>
+        <button onclick="mostrarSeccion('contacto')">Contáctanos</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="imagenes/milogo.jpg" alt="milogo/milogo.jpg" />
+    </div>
+  </section>
+
+  <section id="empresa" class="seccion">
+    <h2>Misión</h2>
+    <p>Proporcionar productos y servicios de alta calidad que mejoren la vida de nuestros clientes, fomentando la innovación y la sostenibilidad, mientras creamos un entorno de trabajo inclusivo y motivador para nuestros empleados.</p>
+
+    <h2>Visión</h2>
+    <p>Ser reconocidos como líderes en nuestra industria, transformando el mercado a través de la excelencia en el servicio al cliente, la innovación constante y un compromiso firme con el desarrollo sostenible, contribuyendo así a un futuro más brillante para todos.</p>
+  </section>
+
+  <section id="contacto" class="seccion">
+    <h2>Contáctanos</h2>
+    <p><strong>Correo:</strong> contacto@empresa-ficticia.com</p>
+    <p><strong>Teléfono 1:</strong> +57 300 123 4567</p>
+    <p><strong>Teléfono 2:</strong> +57 311 987 6543</p>
+  </section>
+
+<section id="sedes" class="seccion">
+  <h2>Nuestras Sedes</h2>
+  <p>Contamos con presencia en varias regiones del país: Bogotá, Medellín, Cali y Barranquilla. Cada sede está equipada con tecnología moderna y personal capacitado para ofrecer el mejor servicio.</p>
+</section>
+
+<section id="proyectos" class="seccion">
+  <h2>Nuestros Proyectos</h2>
+  <p>Actualmente estamos desarrollando soluciones innovadoras en áreas como transformación digital, sostenibilidad empresarial y automatización de procesos, con impacto directo en más de 50 empresas aliadas.</p>
+</section>
+
+
+  <footer>
+    &copy; 2025 Plataforma Empresarial. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('.seccion');
+      secciones.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

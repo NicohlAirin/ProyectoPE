@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentos Recibidos</title>
+  <style>
+
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: #fff;
+  min-width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+}
+
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  background: url('Imagenes/Fondo_rosa_salmon.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+aside {
+      background: #f8f5f2;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .main h2 {
+      font-size: 1.8em;
+      margin-bottom: 5px;
+      font-family: 'Georgia', serif;
+    }
+
+    .main p {
+      margin-bottom: 30px;
+      color: #000000;
+    }
+ 
+.grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #ffa894;
+      border-radius: 15px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .footer-img {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      width: 200px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .topbar span {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .topbar svg {
+      margin-right: 8px;
+    }
+
+
+    .tabs {
+      display: flex;
+      border-bottom: 1.5px solid #f0cfc7;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      margin-right: 30px;
+      padding-bottom: 10px;
+      font-weight: bold;
+      color: #000000;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      color: #000000;
+      border-bottom: 2px solid #000000;
+    }
+
+
+.document-container {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+  backdrop-filter: blur(2px); 
+}
+
+    .document-container h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .search-bar {
+      margin-bottom: 15px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .icon-pdf {
+      color: #d08b78;
+      margin-right: 8px;
+    }
+
+    .download-icon {
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+      transition: color 0.2s;
+    }
+
+    .download-icon:hover {
+      color: #d08b78;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <nav>
+      <a href="5PerfilHTML.html">👤 Perfil</a>
+      <a href="4DashboardHTML.html">🪟 Paneles</a>
+      <a class="active" href="6MisDocumentosHTML.html">📄 Documentos</a>
+      <a href="9PersonalHTML.html">🧑 Personal</a>
+      <a href="12AyudaEnLoginHTML.html">❓ Ayuda</a>
+      <a href="1InicioPlataformaBienvenidaHTML.html" onclick="cerrarSesion(event)">🔓 Cerrar Sesión</a>
+    </nav>
+  </aside>
+
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <span><i data-lucide="#">👤</i> Administrador</span>
+    </div>
+    <h2>Documentos</h2>
+    <p>Bienvenid@ de nuevo.</p>
+
+    <div class="tabs">
+  <a href="6MisDocumentosHTML.html" class="tab">Mis Documentos</a>
+  <a href="7SubirArchivosHTML.html" class="tab">Subir Archivos</a>
+  <div class="tab active">Documentos Recibidos</div>
+</div>
+
+
+    <div class="document-container">
+      <h3>Mis documentos</h3>
+      <div class="search-bar">
+        <input type="text" id="buscador" placeholder="🔍 Buscar por nombre" onkeyup="filtrarTabla()">
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo archivo</th>
+            <th>Fecha</th>
+            <th>Descargar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaDocumentos">
+          <tr>
+            <td><span class="icon-pdf">📄</span>Justificacion_Nicohl_Campiño</td>
+            <td>PDF</td>
+            <td>**********</td>
+            <td><span class="download-icon" onclick="descargarArchivo('documentos/Justificacion_Nicohl_Campiño.pdf')">⬇️</span></td>
+          </tr>
+          <tr>
+            <td><span class="icon-pdf">📄</span>Peticion_Vacaciones_Juan_Morales</td>
+            <td>PDF</td>
+            <td>**********</td>
+            <td><span class="download-icon" onclick="descargarArchivo('documentos/Peticion_Vacaciones_Juan_Morales.pdf')">⬇️</span></td>
+          </tr>
+          <tr>
+            <td><span class="icon-pdf">📄</span>Certificado_Medico_Sara_Cubillos</td>
+            <td>PDF</td>
+            <td>**********</td>
+            <td><span class="download-icon" onclick="descargarArchivo('documentos/Certificado_Medico_Sara_Cubillos.pdf')">⬇️</span></td>
+          </tr>
+          <tr>
+            <td><span class="icon-pdf">📄</span>Peticion_Cambio_Sede_Edwar_Torres</td>
+            <td>PDF</td>
+            <td>**********</td>
+            <td><span class="download-icon" onclick="descargarArchivo('documentos/Peticion_Cambio_Sede_Edwar_Torres.pdf')">⬇️</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<div id="toast-container"></div>
+
+<script>
+  function mostrarToast(mensaje, tipo = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${tipo}`;
+    toast.innerText = mensaje;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+</script>
+
+<script>
+  function descargarArchivo(ruta) {
+    fetch(ruta)
+      .then(response => {
+        if (!response.ok) throw new Error("Archivo no encontrado");
+        return response.blob();
+      })
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = ruta.split('/').pop();
+        a.click();
+        window.URL.revokeObjectURL(url);
+        mostrarToast("✅ Archivo descargado exitosamente.", "success");
+      })
+      .catch(() => {
+        mostrarToast("❌ El archivo no existe o no se pudo descargar.", "error");
+      });
+  }
+  function filtrarTabla() {
+    const input = document.getElementById("buscador").value.toLowerCase();
+    const filas = document.getElementById("tablaDocumentos").getElementsByTagName("tr");
+
+    for (let i = 0; i < filas.length; i++) {
+      const texto = filas[i].getElementsByTagName("td")[0].textContent.toLowerCase();
+      filas[i].style.display = texto.includes(input) ? "" : "none";
+    }
+  }
+</script>
+
+<script>
+  function cerrarSesion(event) {
+    event.preventDefault(); 
+    alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+    window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+  }
+</script>
+
+</body>
+</html>

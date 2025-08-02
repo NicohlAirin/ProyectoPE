@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayuda - Plataforma Empresarial</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #fff;
+    }
+
+    aside {
+      background: #f8f5f2;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px 40px;
+      overflow-y: auto;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .descripcion {
+      color: #cc6666;
+      margin-bottom: 20px;
+    }
+
+    .faq {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .faq input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .faq div {
+      margin-bottom: 15px;
+    }
+
+    .faq p {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .faq ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .contacto {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .contacto a {
+      color: #0044cc;
+      text-decoration: none;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background-color: #f5f5f5;
+      padding: 5px 20px;
+      font-size: 12px;
+      border-top: 1px solid #ccc;
+    }
+
+    /* ==== BOTÓN VOLVER ESTILOS ==== */
+    .btn-volver-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .btn-volver {
+      background-color: #ffe5e0;
+      color: #333;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #fca5a5;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <img src="imagenes/Icono_Ayuda.png" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+  </aside>
+
+  <div class="main">
+
+    <div class="btn-volver-container">
+      <a href="1InicioPlataformaBienvenidaHTML.html" class="btn-volver">← Volver</a>
+    </div>
+
+    <h1>Ayuda</h1>
+    <p class="descripcion">Bienvenid@ a nuestra sección de ayuda. Aquí encontraras respuestas a las preguntas más comunes y encontraras un apoyo 24/7 a tus inquietudes</p>
+
+    <div class="faq">
+      <input type="text" id="buscar" placeholder="Buscar pregunta" onkeyup="filtrarPreguntas()">
+
+      <div class="pregunta">
+        <p>¿Cómo me contacto con soporte?</p>
+        <ul>
+          <li>Para comunicarte con soporte pueden escribirnos a nuestro correo que se encuentra en la parte inferior de esta pagina, o comunicarte a través de las líneas telefónicas.</li>
+        </ul>
+      </div>
+      <div class="pregunta">
+        <p>¿Cómo ingreso a la plataforma?</p>
+        <ul>
+          <li>Para ingresar a la plataforma debes encontrarte en la página principal de nuestra empresa, haz clic en “Iniciar Sesión”, ingresa los datos solicitados y listo.</li>
+        </ul>
+      </div>
+      <div class="pregunta">
+        <p>¿Por qué no me deja iniciar sesión?</p>
+        <ul>
+          <li>Recuerda que para iniciar sesión, debes estar vinculado a nuestra empresa como empleado o administrador, ingresa el usuario el cual corresponde a tu número de identificación y consiguiente la contraseña, la cual se te otorgó el día en que se realizó la contratación con la empresa. Si aún no logras ingresar por favor comunícate con nuestro soporte humano.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contacto">
+      <h4>Números de Contacto</h4>
+      <p>Teléfonos: <br>
+        <a href="tel:+573001234567">+57 300 123 4567</a><br>
+        <a href="tel:+573119876543">+57 311 987 6543</a>
+      </p>
+      <p>Email: <a href="mailto:soporte@empresa.com">soporte@empresa.com</a></p>
+      <p>Redes Sociales: <a href="https://facebook.com/empresa">facebook.com/empresa</a>, <a href="https://instagram.com/company/empresa">instagram.com/company/empresa</a></p>
+    </div>
+  </div>
+
+  <script>
+    function filtrarPreguntas() {
+      const input = document.getElementById('buscar').value.toLowerCase();
+      const preguntas = document.querySelectorAll('.pregunta');
+      preguntas.forEach(p => {
+        const texto = p.innerText.toLowerCase();
+        p.style.display = texto.includes(input) ? 'block' : 'none';
+      });
+    }
+
+    function cerrarSesion(event) {
+      event.preventDefault();
+      alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+      window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+    }
+  </script>
+</body>
+</html>

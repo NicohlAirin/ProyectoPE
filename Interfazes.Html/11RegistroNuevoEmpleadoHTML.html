@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Empleado</title>
+  <style>
+   
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  background-image: url('Imagenes/Fondo_rosa_salmon.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333;
+}
+
+    aside {
+      background: #f8f5f2;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+    main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: left;
+      font-size: 28px;
+      color: #111;
+    }
+    
+.tab-bar {
+      margin-top: 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+    }
+
+    .tab-bar span {
+      padding-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .tab-bar .active {
+      border-bottom: 2px solid #f2c7b8;
+      color: #f2977f;
+    }
+ 
+    .upload-section {
+      margin-top: 20px;
+    }
+
+    .upload-box {
+      border: 2px dashed #ccc;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .upload-box input[type="file"] {
+      display: none;
+    }
+
+    .upload-box label {
+      font-size: 18px;
+      cursor: pointer;
+      color: #f2977f;
+    }
+
+    .upload-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #000000;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      margin-bottom: 20px;
+    }
+
+    .subtitulo {
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .form-control {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      background-color: #f6f6f6;
+    }
+
+    .checkbox {
+      margin-top: 20px;
+    }
+
+    .checkbox label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      background-color: #fa9079;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e57862;
+    }
+
+    .toast {
+      visibility: hidden;
+      min-width: 300px;
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      padding: 15px;
+      position: fixed;
+      z-index: 1000;
+      right: 30px;
+      bottom: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .submit {
+      background-color: #f2977f;
+      color: #fff;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+   
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.tabs .tab {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tabs .tab.active {
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+
+  </style>
+</head>
+<body>
+  <aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <nav>
+      <a href="5PerfilHTML.html">👤 Perfil</a>
+      <a href="4DashboardHTML.html">🪟 Paneles</a>
+      <a href="6MisDocumentosHTML.html">📄 Documentos</a>
+      <a class="active" href="9PersonalHTML.html">🧑 Personal</a>
+      <a href="12AyudaEnLoginHTML.html">❓ Ayuda</a>
+      <a href="1InicioPlataformaBienvenidaHTML.html" onclick="cerrarSesion(event)">🔓 Cerrar Sesión</a>
+    </nav>
+  </aside>
+
+  <main>
+    <h1>PERSONAL</h1>
+    <p>¡Bienvenid@s empecemos!</p>
+
+   <div class="tabs">
+  <a href="9PersonalHTML.html" class="tab">Personal</a>
+  <a href="#" class="tab active">Ingresar Nuevo Personal</a>
+</div>
+
+
+    <form id="formEmpleado">
+      <div class="form-group">
+        <div class="form-control">
+          <label for="nombres">Nombres</label>
+          <input type="text" id="nombres">
+          <span class="error" id="errorNombres"></span>
+        </div>
+        <div class="form-control">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" id="apellidos">
+          <span class="error" id="errorApellidos"></span>
+        </div>
+        <div class="form-control">
+          <label for="puesto">Puesto de ingreso</label>
+          <input type="text" id="puesto">
+          <span class="error" id="errorPuestodeingreso"></span>
+        </div>
+        <div class="form-control">
+          <label for="identificacion">Número de identificación</label>
+          <input type="text" id="identificacion">
+          <span class="error" id="errorNúmerodeidentificación"></span>
+        </div>
+        <div class="form-control">
+          <label for="telefono">Número de teléfono</label>
+          <input type="text" id="telefono">
+          <span class="error" id="errorNúmerodeteléfono"></span>
+        </div>
+        <div class="form-control">
+          <label for="residencia">Dirección de residencia</label>
+          <input type="text" id="residencia">
+        </div>
+        <div class="form-control">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad">
+          <span class="error" id="errorCiudad"></span>
+        </div>
+        <div class="form-control">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo">
+        </div>
+        <div class="form-control">
+          <label for="password">Contraseña</label>
+          <input type="text" id="password" readonly>
+        </div>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="generarPass" onclick="generarContrasena()"> 
+          Generar contraseña automática
+        </label>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <div id="toast" class="toast">¡Empleado registrado con éxito!</div>
+
+  <script>
+    const form = document.getElementById('formEmpleado');
+    const toast = document.getElementById('toast');
+
+    function generarContrasena() {
+      const checked = document.getElementById("generarPass").checked;
+      const passwordInput = document.getElementById("password");
+      if (checked) {
+        const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let pass = "";
+        for (let i = 0; i < 10; i++) {
+          pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        }
+        passwordInput.value = pass;
+      } else {
+        passwordInput.value = "";
+      }
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      
+      document.getElementById('errorNombres').innerText = '';
+      document.getElementById('errorApellidos').innerText = '';
+
+     
+      const nombres = document.getElementById("nombres").value.trim();
+      const apellidos = document.getElementById("apellidos").value.trim();
+      let valido = true;
+
+      if (nombres === "") {
+        document.getElementById('errorNombres').innerText = "Este campo es obligatorio.";
+        valido = false;
+      }
+      if (apellidos === "") {
+        document.getElementById('errorApellidos').innerText = "Este campo es obligatorio.";
+        valido = false;
+      }
+      if (document.getElementById("puesto").value.trim() === "") {
+        document.getElementById('errorPuestodeingreso').innerText = "Este campo es obligatorio.";
+        valido = false;
+      }
+      if (document.getElementById("identificacion").value.trim() === "") {
+        document.getElementById('errorNúmerodeidentificación').innerText = "Este campo es obligatorio.";
+        valido = false;
+      } 
+      if (document.getElementById("telefono").value.trim() === "") {
+        document.getElementById('errorNúmerodeteléfono').innerText = "Este campo es obligatorio.";
+        valido = false;
+      }
+      if (document.getElementById("ciudad").value.trim() === "") {
+        document.getElementById('errorCiudad').innerText = "Este campo es obligatorio.";
+        valido = false;
+      }
+      
+      if (valido) {
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+
+        form.reset();
+        document.getElementById("password").value = "";
+      }
+    });
+  </script>
+
+<script>
+  function cerrarSesion(event) {
+    event.preventDefault();
+    alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+    window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+  }
+</script>
+
+</body>
+</html>

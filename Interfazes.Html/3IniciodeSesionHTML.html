@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar Sesión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+    body {
+  background-image: url('imagenes/Fondo_rosa_salmon.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+
+    .container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      transition: all 0.3s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+    }
+
+    .link {
+      text-align: right;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .link a {
+      color: #ff9e89;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ff9e89;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #fc7c5f;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .btn-volver-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .btn-volver {
+      background-color: #ffe5e0;
+      color: #333;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #fca5a5;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+ <div class="btn-volver-container">
+      <a href="1InicioPlataformaBienvenidaHTML.html" class="btn-volver">← Volver</a>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="form-section active">
+      <h2>Iniciar Sesión</h2>
+      <div class="error-message" id="errorLogin"></div>
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" />
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" name="contrasena" />
+      </div>
+      <button type="submit" class="btn">Ingresar</button>
+    </form>
+
+   
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const resetForm = document.getElementById("resetForm");
+    const errorLogin = document.getElementById("errorLogin");
+    const errorReset = document.getElementById("errorReset");
+
+
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const usuario = document.getElementById("usuario").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+      if (!usuario || !contrasena) {
+        errorLogin.textContent = "Completa todos los campos.";
+        errorLogin.style.display = "block";
+      } else if (usuario !== "admin" || contrasena !== "123456") {
+        errorLogin.textContent = "Usuario o contraseña incorrectos.";
+        errorLogin.style.display = "block";
+     } else {
+  errorLogin.style.display = "none";
+  window.location.href="4DashboardHTML.html";
+}
+
+    });
+
+    resetForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      if (!email) {
+        errorReset.textContent = "Ingresa tu correo.";
+        errorReset.style.display = "block";
+      } else {
+        errorReset.style.display = "none";
+        alert("Te hemos enviado un enlace para recuperar tu contraseña 📧");
+        resetForm.reset();
+        resetForm.classList.remove("active");
+        loginForm.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

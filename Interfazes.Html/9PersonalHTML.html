@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal - Plataforma Empresarial</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      color: #000;
+      background-color: #fff0f0;
+    }
+aside {
+      background: #fff0f0;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+    aside {
+      width: 200px;
+      background-color: #f8f5f2;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    aside h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 10px 0;
+      text-decoration: none;
+      color: black;
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+    }
+
+    nav a.active {
+      color: #f59b9b;
+      font-weight: bold;
+      border-left: 3px solid #f59b9b;
+      padding-left: 5px;
+    }
+
+    main {
+      flex: 1;
+      padding: 30px;
+      background: #fff0f0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .tabs {
+      display: flex;
+      margin-top: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .tabs span {
+      margin-right: 30px;
+      padding-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .tabs .active-tab {
+      color: #f59b9b;
+      border-bottom: 2px solid #f59b9b;
+    }
+
+    .search-container {
+      margin: 20px 0;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr {
+      cursor: pointer;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .flecha {
+      float: right;
+      font-size: 18px;
+      color: #888;
+    }
+
+    .tabs .tab {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-right: 30px;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs .tab.active {
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+  </style>
+</head>
+<body>
+
+  <aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <nav>
+      <a href="5PerfilHTML.html">👤 Perfil</a>
+      <a href="4DashboardHTML.html">🪟 Paneles</a>
+      <a href="6MisDocumentosHTML.html">📄 Documentos</a>
+      <a class= "active" href="9PersonalHTML.html">🧑 Personal</a>
+      <a href="12AyudaEnLoginHTML.html">❓ Ayuda</a>
+      <a href="1InicioPlataformaBienvenidaHTML.html" onclick="cerrarSesion(event)">🔓 Cerrar Sesión</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <h1>PERSONAL</h1>
+      <p>Bienvenid@ de nuevo.</p>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active">Personal</div>
+      <a href="11RegistroNuevoEmpleadoHTML.html" class="tab">Ingresar Nuevo Empleado</a>
+    </div>
+
+
+    <div class="search-container">
+      <input type="text" placeholder="Buscar empleado">
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="verEmpleado(1)">
+          <td>Nicohl Airin Campiño Polanco</td>
+          <td>01 <span class="flecha">➤</span></td>
+        </tr>
+        <tr onclick="verEmpleado(2)">
+          <td>Vive Liney Polanco Rojas</td>
+          <td>02 <span class="flecha">➤</span></td>
+        </tr>
+        <tr onclick="verEmpleado(3)">
+          <td>Sara Isabela Cubillos Mora</td>
+          <td>03 <span class="flecha">➤</span></td>
+        </tr>
+        <tr onclick="verEmpleado(4)">
+          <td>Edwar Estiven Rojas Torres</td>
+          <td>04 <span class="flecha">➤</span></td>
+        </tr>
+        <tr onclick="verEmpleado(5)">
+          <td>Samuel Gutierrez Niño</td>
+          <td>05 <span class="flecha">➤</span></td>
+        </tr>
+        <tr onclick="verEmpleado(6)">
+          <td>Juan Jose Espíita Guzman</td>
+          <td>06 <span class="flecha">➤</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    function irANuevoEmpleado() {
+      window.location.href = "nuevo-empleado.html";
+    }
+
+    function verEmpleado(id) {
+      window.location.href = "10PerfilEmpleadoHTML.html?id=1" + id;
+        window.location.href = "10PerfilEmpleadoHTML.html?id=2" + id;
+        window.location.href = "10PerfilEmpleadoHTML.html?id=3" + id;
+        window.location.href = "10PerfilEmpleadoHTML.html?id=4" + id;
+        window.location.href = "10PerfilEmpleadoHTML.html?id=5" + id;
+        window.location.href = "10PerfilEmpleadoHTML.html?id=6" + id;
+    }
+  </script>
+
+<script>
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+      const value = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#employeeTable tr");
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(value) ? "" : "none";
+      });
+    });
+</script>
+
+<script>
+  function cerrarSesion(event) {
+    event.preventDefault();
+    alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+    window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+  }
+</script>
+</body>
+</html>

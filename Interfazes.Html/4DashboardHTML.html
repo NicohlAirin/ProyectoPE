@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard PE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+   body {
+  display: flex;
+  min-height: 100vh;
+  background-image: url('Imagenes/fondo_floral.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+aside {
+      background: #f8f5f2;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+   
+    .sidebar {
+      width: 250px;
+      background: #fef8f6;
+      padding: 20px;
+      border-right: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar .logo {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .sidebar .logo span {
+      display: block;
+      font-size: 0.8em;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      color: #333;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background-color: #ffe5dd;
+      font-weight: 600;
+    }
+
+    .sidebar nav a svg {
+      margin-right: 10px;
+    }
+
+    .sidebar .bottom {
+      margin-top: auto;
+    }
+
+    
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .main h2 {
+      font-size: 1.8em;
+      margin-bottom: 5px;
+    }
+
+    .main p {
+      margin-bottom: 30px;
+      color: #000000;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #ffa894;
+      border-radius: 15px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .footer-img {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  width: 120px; 
+  height: auto; 
+}
+
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .topbar span {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .topbar svg {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <nav>
+      <a href="5PerfilHTML.html">👤 Perfil</a>
+      <a class="active" href="4DashboardHTML.html">🪟 Paneles</a>
+      <a href="6MisDocumentosHTML.html">📄 Documentos</a>
+      <a href="9PersonalHTML.html">🧑 Personal</a>
+      <a href="12AyudaEnLoginHTML.html">❓ Ayuda</a>
+      <a href="1InicioPlataformaBienvenidaHTML.html" onclick="cerrarSesion(event)">🔓 Cerrar Sesión</a>
+
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <span><i data-lucide="user-circle"></i> Administrador</span>
+    </div>
+    <h2>PANELES</h2>
+    <p>Bienvenid@ de nuevo</p>
+
+   <div class="grid">
+  <a href="5PerfilHTML.html" class="card">
+    <i data-lucide="user"></i> Perfil
+  </a>
+  <a href="6MisDocumentosHTML.html" class="card">
+    <i data-lucide="file-text"></i> Documentos
+  </a>
+  <a href="12AyudaEnLoginHTML.html" class="card">
+    <i data-lucide="help-circle"></i> Ayuda/Atención
+  </a>
+  <a href="9PersonalHTML.html" class="card">
+    <i data-lucide="users"></i> Personal
+  </a>
+</div>
+
+
+    <img src="imagenes/Amigos.jpg" class="footer-img" alt="Ilustración">
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        alert(`Has hecho clic en: ${card.textContent.trim()}`);
+      });
+    });
+ </script>
+
+    <script>
+  function cerrarSesion(event) {
+    event.preventDefault();
+    alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+    window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+  }
+</script>
+
+
+
+</body>
+</html>

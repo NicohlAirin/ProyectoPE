@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda - Plataforma Empresarial</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #fff;
+        }
+        aside {
+      background: #f8f5f2;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+        .main {
+            flex: 1;
+            padding: 20px 40px;
+            overflow-y: auto;
+        }
+        h1 {
+            margin-bottom: 5px;
+        }
+        .descripcion {
+            color: #cc6666;
+            margin-bottom: 20px;
+        }
+        .faq {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .faq input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .faq div {
+            margin-bottom: 15px;
+        }
+        .faq p {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .faq ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .contacto {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .contacto a {
+            color: #0044cc;
+            text-decoration: none;
+        }
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f5f5f5;
+            padding: 5px 20px;
+            font-size: 12px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <nav>
+      <a href="5PerfilHTML.html">👤 Perfil</a>
+      <a href="4DashboardHTML.html">🪟 Paneles</a>
+      <a href="6MisDocumentosHTML.html">📄 Documentos</a>
+      <a href="9PersonalHTML.html">🧑 Personal</a>
+      <a class="active" href="12AyudaEnLoginHTML.html">❓ Ayuda</a>
+      <a href="1InicioPlataformaBienvenidaHTML.html" onclick="cerrarSesion(event)">🔓 Cerrar Sesión</a>
+    </nav>
+  </aside>
+
+    <div class="main">
+        <h1>Ayuda</h1>
+        <p class="descripcion">Bienvenid@ a nuestra sección de ayuda. Aquí encontraras respuestas a las preguntas mas comunes y encontraras un apoyo 24/7 a tus inquietudes</p>
+        <div class="faq">
+            <input type="text" id="buscar" placeholder="Buscar pregunta" onkeyup="filtrarPreguntas()">
+
+            <div class="pregunta">
+                <p>¿Cómo puedo enviar documentos a mi supervisor?</p>
+                <ul>
+                    <li>Para enviar documentos, es necesario iniciar una sesión desde tu usuario, selecciona el panel “Documentos”, luego la subpestaña “Subir Archivo”, allí da clic en “Subir Archivo Aquí”, selecciona el archivo y da clic en “Subir”</li>
+                </ul>
+            </div>
+            <div class="pregunta">
+                <p>¿Qué tipos de archivo puedo enviar?</p>
+                <ul>
+                    <li>Puedes enviar todo tipo de archivo, (PDF, DOCX, JPG, PNG, ZIP, etc.). Asegúrate que el tamaño del archivo no exceda las 250 MB.</li>
+                </ul>
+            </div>
+            <div class="pregunta">
+                <p>¿Qué debo hacer si tengo problemas para enviar un archivo?</p>
+                <ul>
+                    <li>Si tienes problemas al enviar un archivo, verifica tu conexión a internet, verifica que el tipo de archivo, verifica que no excede el tamaño requerido (250 MB), verifica que el campo “Texto”, este lleno con la información correspondiente. Si el problema persiste, contáctanos para asistencia técnica.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contacto">
+            <h4>Números de Contacto</h4>
+            <p>Teléfonos: <br>
+                <a href="tel:+573001234567">+57 300 123 4567</a><br>
+                <a href="tel:+573119876543">+57 311 987 6543</a>
+            </p>
+            <p>Email: <a href="mailto:soporte@empresa.com">soporte@empresa.com</a></p>
+            <p>Redes Sociales: <a href="https://facebook.com/empresa">facebook.com/empresa</a>, <a href="https://instagram.com/company/empresa">instagram.com/company/empresa</a></p>
+        </div>
+    </div>
+    
+
+    <script>
+        function filtrarPreguntas() {
+            const input = document.getElementById('buscar').value.toLowerCase();
+            const preguntas = document.querySelectorAll('.pregunta');
+
+            preguntas.forEach(p => {
+                const texto = p.innerText.toLowerCase();
+                p.style.display = texto.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
+
+<script>
+  function cerrarSesion(event) {
+    event.preventDefault();
+    alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+    window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+  }
+</script>
+
+</body>
+</html>

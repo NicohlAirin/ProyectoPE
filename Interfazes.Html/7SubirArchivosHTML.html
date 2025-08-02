@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Subida de Documentos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      background-color: #fff0f0;
+      color: #000000;
+    }
+
+   aside {
+      background: #f8f5f2;
+      width: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    aside nav a {
+      display: block;
+      padding: 15px 10px;
+      color: #333;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 10px;
+    }
+
+    aside nav a.active,
+    aside nav a:hover {
+      background-color: #ffe5e0;
+      border-left: 3px solid #fca5a5;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .main h2 {
+      font-size: 1.8em;
+      margin-bottom: 5px;
+      font-family: 'Georgia', serif;
+    }
+
+    .main p {
+      margin-bottom: 30px;
+      color: #000000;
+    }
+ 
+.grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #ffa894;
+      border-radius: 15px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .footer-img {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      width: 200px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .topbar span {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .topbar svg {
+      margin-right: 8px;
+    }
+
+ 
+.grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #ffa894;
+      border-radius: 15px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .footer-img {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      width: 200px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .topbar span {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .topbar svg {
+      margin-right: 8px;
+    }
+
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+    }
+
+   h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-family: 'Georgia', serif;
+}
+
+    .tabs {
+      display: flex;
+      border-bottom: 1.5px solid #f0cfc7;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      margin-right: 30px;
+      padding-bottom: 10px;
+      font-weight: bold;
+      color: #000000;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      color: #000000;
+      border-bottom: 2px solid #000000;
+    }
+    .upload-section {
+      margin-top: 20px;
+    }
+
+    .upload-box {
+      border: 2px dashed #ccc;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .upload-box input[type="file"] {
+      display: none;
+    }
+
+    .upload-box label {
+      font-size: 18px;
+      cursor: pointer;
+      color: #f2977f;
+    }
+
+    .upload-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #aaa;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 30px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit {
+      background-color: #f2977f;
+      color: #fff;
+    }
+
+    .cancel {
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<aside>
+    <img src="imagenes/milogo.jpg" alt="Logo" style="width: 120px; display: block; margin: 0 auto 30px;" />
+    <nav>
+      <a href="5PerfilHTML.html">👤 Perfil</a>
+      <a href="4DashboardHTML.html">🪟 Paneles</a>
+      <a class="active" href="6MisDocumentosHTML.html">📄 Documentos</a>
+      <a href="9PersonalHTML.html">🧑 Personal</a>
+      <a href="12AyudaEnLoginHTML.html">❓ Ayuda</a>
+      <a href="1InicioPlataformaBienvenidaHTML.html" onclick="cerrarSesion(event)">🔓 Cerrar Sesión</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <span><i data-lucide="#">👤</i> Administrador</span>
+    </div>
+    <h1>Documentos</h1>
+    <p>Bienvenid@ de nuevo.</p>
+
+<div class="tabs">
+  <a href="6MisDocumentosHTML.html" class="tab">Mis Documentos</a>
+  <div class="tab active">Subir Archivo</div>
+  <a href="8DocumentosRecibidosHTML.html" class="tab">Documentos recibidos</a>
+</div>
+
+    <div class="upload-section">
+      <div class="info">
+        <div>📁 Tamaño máximo de archivo: 250 MB, número máximo de archivos: 1</div>
+        <div>📌 Tipos de archivo aceptados: <span style="color: #f2977f;">Todos los tipos de archivo</span></div>
+      </div>
+
+      <div class="upload-box" id="drop-area">
+        <div class="upload-icon">📁</div>
+        <label for="fileInput">Subir Archivos Aquí</label>
+        <input type="file" id="fileInput" multiple>
+        <p id="fileList">Ningún archivo seleccionado</p>
+      </div>
+
+      <textarea id="mensaje" placeholder="Nombre del archivo"></textarea>
+
+      <div class="buttons">
+        <button class="submit" onclick="enviarFormulario()">Subir</button>
+        <button class="cancel" onclick="cancelarFormulario()">Cancelar</button>
+      </div>
+
+      <div class="status" id="statusMensaje"></div>
+    </div>
+  </main>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    const statusMensaje = document.getElementById('statusMensaje');
+    const mensaje = document.getElementById('mensaje');
+
+    fileInput.addEventListener('change', () => {
+      const archivos = Array.from(fileInput.files).map(file => file.name);
+      fileList.textContent = archivos.length ? archivos.join(', ') : 'Ningún archivo seleccionado';
+    });
+
+    function enviarFormulario() {
+      const archivos = fileInput.files;
+      const texto = mensaje.value.trim();
+
+      if (archivos.length === 0) {
+        mostrarMensaje("Debe seleccionar al menos un archivo.", "error");
+        return;
+      }
+
+      if (!texto) {
+        mostrarMensaje("Debe escribir un mensaje.", "error");
+        return;
+      }
+
+      setTimeout(() => {
+        mostrarMensaje("¡Archivos y mensaje enviados correctamente!", "success");
+        fileInput.value = '';
+        fileList.textContent = 'Ningún archivo seleccionado';
+        mensaje.value = '';
+      }, 1000);
+    }
+
+    function cancelarFormulario() {
+      fileInput.value = '';
+      fileList.textContent = 'Ningún archivo seleccionado';
+      mensaje.value = '';
+      statusMensaje.textContent = '';
+    }
+
+    function mostrarMensaje(texto, tipo) {
+      statusMensaje.textContent = texto;
+      statusMensaje.className = `status ${tipo}`;
+    }
+  </script>
+
+<script>
+  function cerrarSesion(event) {
+    event.preventDefault();
+    alert("¿Estás seguro de cerrar sesión? Acepta para cerrar sesión correctamente✅");
+    window.location.href = "1InicioPlataformaBienvenidaHTML.html";
+  }
+</script>
+
+</body>
+</html>
